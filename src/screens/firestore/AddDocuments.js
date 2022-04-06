@@ -35,7 +35,9 @@ const AddDocuments = () => {
     <View style={styles.container}>
       <ScrollView style={styles.scrollview}>
         <View style={styles.container}>
-          <Text style={styles.header}>Login {user ? user.email : null}</Text>
+          <Text style={styles.header}>
+            Adding docs {user ? user.email : null}
+          </Text>
           <TextInput
             style={styles.textinput}
             placeholder={'name'}

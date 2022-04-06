@@ -8,3 +8,11 @@ export const addDocument = async (collection, document) => {
     throw new Error('Error adding document');
   }
 };
+
+export const deleteDocument = async (collection, documentID) => {
+  try {
+    await firestore().collection(collection).doc(documentID).delete();
+  } catch (err) {
+    throw new Error('Error deleting document');
+  }
+};

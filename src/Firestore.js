@@ -13,7 +13,6 @@ function FirestoreTabs() {
   const createScreenOptions = ({route}) => ({
     tabBarShowLabel: false,
     tabBarIcon: ({focused, color}) => {
-      console.log(color, focused);
       if (route.name === 'AddDocuments') {
         return <CloudAddIcon width={20} height={20} stroke={color} />;
       }
