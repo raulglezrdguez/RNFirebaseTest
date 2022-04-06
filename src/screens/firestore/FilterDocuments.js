@@ -1,14 +1,14 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-const CloudFirestore = () => {
+const FilterDocuments = () => {
   return (
     <View>
-      <Text>CloudFirestore</Text>
+      <Text>FilterDocuments</Text>
     </View>
   );
 };
 
-export default CloudFirestore;
+export default FilterDocuments;
 
 const styles = StyleSheet.create({});

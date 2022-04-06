@@ -8,7 +8,7 @@ import auth from '@react-native-firebase/auth';
 import UserContext from './context/user/userContext';
 
 import Login from './screens/Login';
-import CloudFirestore from './screens/CloudFirestore';
+import Firestore from './Firestore';
 
 import LoginIcon from './components/LoginIcon';
 import FirestoreIcon from './components/FirestoreIcon';
@@ -45,7 +45,7 @@ const Main = () => {
       if (route.name === 'Login') {
         return <LoginIcon width={size} height={size} stroke={color} />;
       }
-      if (route.name === 'CloudFirestore') {
+      if (route.name === 'Firestore') {
         return <FirestoreIcon width={size} height={size} stroke={color} />;
       }
       return null;
@@ -56,12 +56,10 @@ const Main = () => {
     <NavigationContainer>
       <Tab.Navigator screenOptions={createScreenOptions}>
         <Tab.Screen name="Login" component={Login} />
-        <Tab.Screen name="CloudFirestore" component={CloudFirestore} />
+        <Tab.Screen name="Firestore" component={Firestore} />
       </Tab.Navigator>
     </NavigationContainer>
   );
 };
 
 export default Main;
-
-const styles = StyleSheet.create({});
