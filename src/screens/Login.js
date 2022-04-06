@@ -13,6 +13,8 @@ import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {colors} from '../theme/colors';
 import UserContext from '../context/user/userContext';
 
+import GoogleIcon from '../components/GoogleIcon';
+
 const Login = () => {
   const {user} = useContext(UserContext);
   const [variables, setVariables] = useState({
@@ -89,7 +91,7 @@ const Login = () => {
     <View style={styles.container}>
       <ScrollView style={styles.scrollview}>
         <View style={styles.container}>
-          <Text>Login {user ? user.email : null}</Text>
+          <Text style={styles.header}>Login {user ? user.email : null}</Text>
           <TextInput
             style={styles.textinput}
             placeholder={'email'}
@@ -137,7 +139,8 @@ const Login = () => {
                 .then(() => console.log('Signed in with Google!'))
                 .catch(err => console.log(err))
             }>
-            <Text style={styles.textbutton}>Google Login</Text>
+            <GoogleIcon width={20} height={20} />
+            <Text style={styles.textbutton}>oogle Login</Text>
           </Pressable>
           <Pressable style={styles.button} onPress={doSignOut}>
             <Text style={styles.textbutton}>Sign out</Text>
@@ -169,6 +172,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
   },
+  header: {fontWeight: 'bold', marginVertical: 20},
   scrollview: {
     alignContent: 'center',
     width: '90%',

@@ -40,6 +40,7 @@ const Main = () => {
 
   const createScreenOptions = ({route}) => ({
     headerShown: false,
+    tabBarLabelShowLabel: false,
     tabBarIcon: ({color, size}) => {
       if (route.name === 'Login') {
         return <LoginIcon width={size} height={size} stroke={color} />;
