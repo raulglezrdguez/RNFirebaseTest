@@ -86,63 +86,65 @@ const Login = () => {
   };
 
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <Text>Login {user ? user.email : null}</Text>
-        <TextInput
-          style={styles.textinput}
-          placeholder={'email'}
-          value={variables.email}
-          onChangeText={text => setVariables({...variables, email: text})}
-        />
-        <TextInput
-          style={styles.textinput}
-          placeholder={'password'}
-          value={variables.password}
-          onChangeText={text => setVariables({...variables, password: text})}
-          secureTextEntry={true}
-        />
-        <Pressable
-          style={styles.button}
-          onPress={doRegister}
-          disabled={
-            variables.email.trim().length < 4 ||
-            variables.password.trim().length < 4
-          }>
-          <Text>Register</Text>
-        </Pressable>
-        <Pressable
-          style={styles.button}
-          onPress={doAnonymousLogin}
-          disabled={
-            variables.email.trim().length < 4 ||
-            variables.password.trim().length < 4
-          }>
-          <Text>Anonymous Login</Text>
-        </Pressable>
-        <Pressable
-          style={styles.button}
-          onPress={doLogin}
-          disabled={
-            variables.email.trim().length < 4 ||
-            variables.password.trim().length < 4
-          }>
-          <Text>Login</Text>
-        </Pressable>
-        <Pressable
-          style={styles.button}
-          onPress={() =>
-            doGoogleSignIn()
-              .then(() => console.log('Signed in with Google!'))
-              .catch(err => console.log(err))
-          }>
-          <Text>Google Login</Text>
-        </Pressable>
-        <Pressable style={styles.button} onPress={doSignOut}>
-          <Text>Sign out</Text>
-        </Pressable>
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <ScrollView style={styles.scrollview}>
+        <View style={styles.container}>
+          <Text>Login {user ? user.email : null}</Text>
+          <TextInput
+            style={styles.textinput}
+            placeholder={'email'}
+            value={variables.email}
+            onChangeText={text => setVariables({...variables, email: text})}
+          />
+          <TextInput
+            style={styles.textinput}
+            placeholder={'password'}
+            value={variables.password}
+            onChangeText={text => setVariables({...variables, password: text})}
+            secureTextEntry={true}
+          />
+          <Pressable
+            style={styles.button}
+            onPress={doRegister}
+            disabled={
+              variables.email.trim().length < 4 ||
+              variables.password.trim().length < 4
+            }>
+            <Text style={styles.textbutton}>Register</Text>
+          </Pressable>
+          <Pressable
+            style={styles.button}
+            onPress={doAnonymousLogin}
+            disabled={
+              variables.email.trim().length < 4 ||
+              variables.password.trim().length < 4
+            }>
+            <Text style={styles.textbutton}>Anonymous Login</Text>
+          </Pressable>
+          <Pressable
+            style={styles.button}
+            onPress={doLogin}
+            disabled={
+              variables.email.trim().length < 4 ||
+              variables.password.trim().length < 4
+            }>
+            <Text style={styles.textbutton}>Login</Text>
+          </Pressable>
+          <Pressable
+            style={styles.button}
+            onPress={() =>
+              doGoogleSignIn()
+                .then(() => console.log('Signed in with Google!'))
+                .catch(err => console.log(err))
+            }>
+            <Text style={styles.textbutton}>Google Login</Text>
+          </Pressable>
+          <Pressable style={styles.button} onPress={doSignOut}>
+            <Text style={styles.textbutton}>Sign out</Text>
+          </Pressable>
+        </View>
+      </ScrollView>
+    </View>
   );
 };
 
@@ -154,25 +156,31 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
 
-    borderColor: colors.black,
-    borderRadius: 5,
-    borderWidth: 1,
+    borderColor: colors.blue,
+    borderRadius: 0,
+    borderWidth: 2,
     margin: 5,
     padding: 5,
-    width: '30%',
+    width: '60%',
   },
   container: {
     flex: 1,
-    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    width: '100%',
   },
-  scrollview: {width: '100%'},
+  scrollview: {
+    alignContent: 'center',
+    width: '90%',
+  },
+  textbutton: {
+    color: colors.blue,
+  },
   textinput: {
     borderColor: colors.black,
     borderRadius: 5,
     borderWidth: 1,
     margin: 5,
-    width: '80%',
+    width: '90%',
   },
 });
