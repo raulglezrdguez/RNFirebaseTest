@@ -12,7 +12,7 @@ const CloudAddIcon = ({
     xmlns="http://www.w3.org/2000/svg"
     width={width}
     height={height}
-    viewBox="0 0 512.001 512.001"
+    viewBox="0 0 512 512"
     {...props}>
     <Path
       fill="#F4B2B0"
