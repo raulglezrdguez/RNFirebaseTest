@@ -1,9 +1,11 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {deleteDocument} from '../api/cloudfirestore';
 import {colors} from '../theme/colors';
 
 const TeamItem = ({team}) => {
+  const [editing, setEditing] = useState(false);
+
   const deleteTeam = useCallback(async () => {
     try {
       await deleteDocument('Teams', team.id);
@@ -15,16 +17,16 @@ const TeamItem = ({team}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>{team.name}</Text>
-      <Text>{team.kind}</Text>
+      {editing ? <Text>Editing</Text> : <Text>{team.kind}</Text>}
       <Text>
         {team.technology} - {team.members} members
       </Text>
       <View style={styles.row}>
         <Pressable style={styles.pressable}>
-          <Text>Edit</Text>
+          {editing ? <Text>Update</Text> : <Text>Edit</Text>}
         </Pressable>
         <Pressable style={styles.pressable} onPress={deleteTeam}>
-          <Text>Delete</Text>
+          {editing ? <Text>Cancel</Text> : <Text>Delete</Text>}
         </Pressable>
       </View>
     </View>
