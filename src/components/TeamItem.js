@@ -1,31 +1,58 @@
 import React, {useCallback, useState} from 'react';
-import {Pressable, StyleSheet, Text, View} from 'react-native';
-import {deleteDocument} from '../api/cloudfirestore';
+import {Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
+import {deleteDocument, editDocument} from '../api/cloudfirestore';
 import {colors} from '../theme/colors';
 
 const TeamItem = ({team}) => {
   const [editing, setEditing] = useState(false);
+  const [kind, setKind] = useState(team.kind);
 
-  const deleteTeam = useCallback(async () => {
-    try {
-      await deleteDocument('Teams', team.id);
-    } catch (err) {
-      console.log(err);
+  const cancelDeleteTeam = useCallback(async () => {
+    if (editing) {
+      setEditing(false);
+    } else {
+      try {
+        await deleteDocument('Teams', team.id);
+      } catch (err) {
+        console.log(err);
+      }
     }
-  }, [team]);
+  }, [editing, team]);
+
+  const updateEditTeam = async () => {
+    if (editing) {
+      try {
+        await editDocument('Teams', team.id, {kind});
+        console.log('document updated');
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      setEditing(true);
+    }
+  };
 
   return (
     <View style={styles.container}>
       <Text style={styles.header}>{team.name}</Text>
-      {editing ? <Text>Editing</Text> : <Text>{team.kind}</Text>}
+      {editing ? (
+        <TextInput
+          style={styles.textinput}
+          placeholder={'kind'}
+          value={kind}
+          onChangeText={text => setKind(text)}
+        />
+      ) : (
+        <Text>{team.kind}</Text>
+      )}
       <Text>
         {team.technology} - {team.members} members
       </Text>
       <View style={styles.row}>
-        <Pressable style={styles.pressable}>
+        <Pressable style={styles.pressable} onPress={updateEditTeam}>
           {editing ? <Text>Update</Text> : <Text>Edit</Text>}
         </Pressable>
-        <Pressable style={styles.pressable} onPress={deleteTeam}>
+        <Pressable style={styles.pressable} onPress={cancelDeleteTeam}>
           {editing ? <Text>Cancel</Text> : <Text>Delete</Text>}
         </Pressable>
       </View>
@@ -56,5 +83,12 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+  },
+  textinput: {
+    borderColor: colors.black,
+    borderRadius: 5,
+    borderWidth: 1,
+    margin: 5,
+    width: '90%',
   },
 });

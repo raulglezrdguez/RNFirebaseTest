@@ -16,3 +16,14 @@ export const deleteDocument = async (collection, documentID) => {
     throw new Error('Error deleting document');
   }
 };
+
+export const editDocument = async (collection, documentID, newDocument) => {
+  try {
+    await firestore()
+      .collection(collection)
+      .doc(documentID)
+      .update(newDocument);
+  } catch (err) {
+    throw new Error('Error updating document');
+  }
+};
