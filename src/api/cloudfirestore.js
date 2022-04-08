@@ -27,3 +27,20 @@ export const editDocument = async (collection, documentID, newDocument) => {
     throw new Error('Error updating document');
   }
 };
+
+export const filterDocuments = async (
+  collection,
+  whereField,
+  whereCondition,
+  whereValue,
+) => {
+  try {
+    const querySnapshot = await firestore()
+      .collection(collection)
+      .where(whereField, whereCondition, whereValue)
+      .get();
+    return querySnapshot;
+  } catch (err) {
+    throw new Error('Error filtering documents');
+  }
+};

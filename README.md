@@ -15,3 +15,4 @@ React Native app for testing firebase options.
 - Realtime changes
 - Adding documents
 - Updating documents
+- Filtering documents

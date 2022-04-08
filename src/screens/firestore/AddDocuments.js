@@ -24,7 +24,10 @@ const AddDocuments = () => {
 
   const doAddDocument = async () => {
     try {
-      await addDocument('Teams', variables);
+      await addDocument('Teams', {
+        ...variables,
+        members: parseInt(variables.members, 10),
+      });
       console.log('document added');
     } catch (err) {
       console.log(err);
