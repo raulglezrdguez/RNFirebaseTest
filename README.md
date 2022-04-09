@@ -16,3 +16,10 @@ React Native app for testing firebase options.
 - Adding documents
 - Updating documents
 - Filtering documents
+
+## Cloud Storage
+
+- Upload files
+- Listing files
+- Download URLs
+- Delete files

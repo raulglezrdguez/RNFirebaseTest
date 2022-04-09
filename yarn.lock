@@ -851,6 +851,11 @@
   "resolved" "https://registry.npmjs.org/@expo/sdk-runtime-versions/-/sdk-runtime-versions-1.0.0.tgz"
   "version" "1.0.0"
 
+"@flyerhq/react-native-android-uri-path@^2.3.0":
+  "integrity" "sha512-qqSopL07BuWh3j20AAdc3MqJsvbXjv7MQaf1KusDX6+VU3Kys/bXOoXuHl4nkPbdqK3XB0CxMVu3d5+Q+eLg5g=="
+  "resolved" "https://registry.npmjs.org/@flyerhq/react-native-android-uri-path/-/react-native-android-uri-path-2.3.0.tgz"
+  "version" "2.3.0"
+
 "@hapi/hoek@^9.0.0":
   "integrity" "sha512-gfta+H8aziZsm8pZa0vj04KO6biEiisppNgA1kbJvFrrWu9Vm7eaUEy76DIxsuTaWvti5fkJVhllWc6ZTE+Mdw=="
   "resolved" "https://registry.npmjs.org/@hapi/hoek/-/hoek-9.2.1.tgz"
@@ -1310,6 +1315,11 @@
 "@react-native-firebase/firestore@^14.7.0":
   "integrity" "sha512-vYmXJYs3VI3Ur4N9BFdls+kwFaQ0+hG5JQe/QA1L/o3UP0ho+oqZ5wyCnpA4uXyQwTgeWUukoedbI+iK0AHpWg=="
   "resolved" "https://registry.npmjs.org/@react-native-firebase/firestore/-/firestore-14.7.0.tgz"
+  "version" "14.7.0"
+
+"@react-native-firebase/storage@^14.7.0":
+  "integrity" "sha512-iiIe3IxIHCXqIT+CJGakMOE1GfOVLAIyZQJ/lFwHMIO0nNHJxPP772Nt8MhE/9aftEBvXE1xGh66GGwvnhR/Lw=="
+  "resolved" "https://registry.npmjs.org/@react-native-firebase/storage/-/storage-14.7.0.tgz"
   "version" "14.7.0"
 
 "@react-native-google-signin/google-signin@^7.2.2":
@@ -5957,6 +5967,13 @@
     "flow-parser" "^0.121.0"
     "jscodeshift" "^0.13.1"
     "nullthrows" "^1.1.1"
+
+"react-native-document-picker@^8.1.0":
+  "integrity" "sha512-FdaehvEoqkVkMTkIy09wpgHUHh9SskI1k8ug8Dwkwk7MJ+XxzrphAk/mXZtu5RkM1Iwxmd82QfwiQJxrZ2LSVg=="
+  "resolved" "https://registry.npmjs.org/react-native-document-picker/-/react-native-document-picker-8.1.0.tgz"
+  "version" "8.1.0"
+  dependencies:
+    "invariant" "^2.2.4"
 
 "react-native-gesture-handler@^2.3.2", "react-native-gesture-handler@>= 1.0.0":
   "integrity" "sha512-ibcYWHMiDbioUcaAMuw3/Taz3mYn0fJz0q2KnGX1hWpLNz/x/E5/BzKB+T3ycwAm1dQEgPgHWpaZ8eqO/EVFlw=="

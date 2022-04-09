@@ -1,5 +1,4 @@
 import React, {useCallback, useContext, useEffect, useState} from 'react';
-import {StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 // import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -8,10 +7,12 @@ import auth from '@react-native-firebase/auth';
 import UserContext from './context/user/userContext';
 
 import Login from './screens/Login';
+import Storage from './screens/Storage';
 import Firestore from './Firestore';
 
 import LoginIcon from './components/LoginIcon';
 import FirestoreIcon from './components/FirestoreIcon';
+import StorageIcon from './components/StorageIcon';
 
 // const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -45,6 +46,9 @@ const Main = () => {
       if (route.name === 'Login') {
         return <LoginIcon width={size} height={size} stroke={color} />;
       }
+      if (route.name === 'Storage') {
+        return <StorageIcon width={size} height={size} stroke={color} />;
+      }
       if (route.name === 'Firestore') {
         return <FirestoreIcon width={size} height={size} stroke={color} />;
       }
@@ -56,6 +60,7 @@ const Main = () => {
     <NavigationContainer>
       <Tab.Navigator screenOptions={createScreenOptions}>
         <Tab.Screen name="Login" component={Login} />
+        <Tab.Screen name="Storage" component={Storage} />
         <Tab.Screen name="Firestore" component={Firestore} />
       </Tab.Navigator>
     </NavigationContainer>
